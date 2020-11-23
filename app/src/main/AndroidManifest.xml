@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.coolweather.android">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+    <!--从Android 6.0开始引入了对Https的推荐支持，而到了Android 9.0的系统上面默认所有Http的请求都无法响应
+    最直接的解决办法就是在AndroidManifest.xml 的application下添加 android:usesCleartextTraffic="true"-->
     <application
         android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
@@ -9,7 +14,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CoolWeather">
+        android:theme="@style/Theme.CoolWeather"
+        android:usesCleartextTraffic="true">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
